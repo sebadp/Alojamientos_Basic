@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaracuraWeb</title>
+    <link rel="stylesheet" href="{% static 'alojamiento/css/cab.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> </head>
+<body>
+    <section>
+        <div class="home">
+            <h2 class="h2"><a href="{% url 'index' %}"><i class="fas fa-arrow-circle-left"></i>    HOME</a></h2>
+        </div>
+        <div class="left">
+            <img src="{% static 'alojamiento/images/form.jpg' %}" alt="">
+        </div>
+        <div class="content">
+            
+            {% block content %}
+                
+                
+            {% if form.errors %}
+            <p style="color: red;"> Por favor revisa los campos en rojo.{{form.errors}} </p>
+             {% endif %}
+            <div class="contactForm">
+                <form class="form" action="" method="POST">
+                    {% csrf_token %}
+                        
+                    <h2>Hacé tu reserva</h2>
+                    <div class="inputBox">
+                        <input type="text" name="name" required="required">
+                        <span>Nombre completo</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="tel" name="tel" required="required">
+                        <span>Teléfono</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="date" name="check_in" required="required">
+                        <span>Desde</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="date" name="check_out" required="required">
+                        <span>Hasta</span>
+                    </div>
+                    <div class="inputBox">
+                            <textarea name="msg" required="required" id="mensaje" cols="30" rows="10"></textarea>
+                        <span>Dejanos un mensaje...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="SEND">
+                    </div>
+                </form>
+            </div>
+            {% endblock content %}
+
+        </div>
+    </section>
+</body>
+</html>

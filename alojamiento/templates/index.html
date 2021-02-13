@@ -1,11 +1,74 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SaracuraWeb</title>
-</head>
-<body>
-    
+    <link rel="stylesheet" href="{% static 'alojamiento/css/index.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <div class="home">
+        <h1 class="h1">Cabañas Saracura</h1>
+    </div>
+    <header>
+        <img src="{% static 'alojamiento/images/slide02.jpg' %}" alt="banner">
+
+        
+    </header>
+
+    <section class="main">
+        <h1>CABAÑAS SARACURA - EL SOBERBIO - MISIONES</h1>
+        <div class="main__container">
+            
+            <div class="targeta">
+                <div class="img"><img src="{% static 'alojamiento/images/pic02.jpg' %}" alt="cab1"></div>
+                <div class="txt">
+                    <h1>Cabaña para 5 personas</h1>
+                    <h2>Dos habitaciones</h2>
+                    <p>Habitación con Aire: Cama doble, cama simple. Habitación con ventilador: Dos camas simples.  Cocina y comedor equipado con vajilla. Jardín y quincho con parrillero. Cochera disponible.</p>
+                    <b><a href="{% url 'reservas' %}">RESERVALA YA!</a></b>
+                </div>
+            </div>
+            <div class="targeta">
+                <div class="img"><img src="{% static 'alojamiento/images/pic03.jpg' %}" alt="cab2"></div>
+                <div class="txt">
+                    <h1>Cabaña para 3 personas</h1>
+                    <h2>Habitación con Aire</h2>
+                    <p>Habitación con cama doble. Cocina y comedor equipado con vajilla. Sofácama. Jardín y quincho con parrillero. Cochera disponible.</p>
+                    <b><a href="{% url 'reservas' %}">RESERVALA YA!</a></b>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="wrapper">
+        <h1>BED & BREAKFAST</h1>
+        <br>
+        <p>Desayuno incluido: Infusiones a elección(Café, Té, Leche). Pan y Dulces caseros, manteca, "Melado artesanal".</p>
+        <br>
+    </section>
+    <section class="galeria">
+        <h1> LA SELVA TE ESPERA</h1>
+        
+        <div class="grid__container">
+            <div class="grid__item"><img src="{% static 'alojamiento/images/int01.jpg' %}" alt="1"></div>
+            <div class="grid__item"><img src="{% static 'alojamiento/images/int02.jpg' %}" alt="2"></div>
+            <div class="grid__item"><img src="{% static 'alojamiento/images/int03.jpg' %}" alt="3"></div>
+            <div class="grid__item"><img src="{% static 'alojamiento/images/int04.jpg' %}" alt="4"></div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer__container">
+            <ul class="icons">
+
+                <li><a href="#" ><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href="#" ><i class="fab fa-instagram-square"></i></a></li>
+                <li><a href="#" ><i class="far fa-envelope"></i></a></li>
+
+            </ul>
+        </div>
+        <div class="copyright">
+            &copy; SaracuraWeb. Todos los derechos reservados.
+        </div>
+    </footer>
 </body>
 </html>
