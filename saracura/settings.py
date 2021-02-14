@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'sc=n27ta$5sl_^v2)tzqhq0wkd^94w%z%j8^2^9a=__$f2s@p_'
+SECRET_KEY = ***********************************************************
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'saracura.urls'
@@ -74,16 +75,14 @@ WSGI_APPLICATION = 'saracura.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+import dj_database_url
+from decouple import config
+
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'saracuraDB',
-            'USER': 'seba',
-            'PASSWORD': 'Comuniza5ionantE!',
-            'HOST': 'localhost',
-            'PORT': '3306',
-        }
-    }
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
+    }   
 
 
 # Password validation
@@ -121,12 +120,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+import os 
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 STATIC_URL = '/static/'
+STATICFILES_URL = (
+    os.path.join(BASE_DIR, 'static')
+)
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_USE_TLS=True
 EMAIL_PORT=587
 EMAIL_HOST_USER='mailing.with.django@gmail.com'
-EMAIL_HOST_PASSWORD='ozboerzqjxoxyzpa'
+EMAIL_HOST_PASSWORD=***************
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
