@@ -453,3 +453,37 @@ section{
   padding: 10px;
   font-size: 18px; 
 }
+@media (max-width: 991px){
+  section{
+      display: flex;
+      flex-direction: column;
+  }
+  .left{
+      max-width: 100vw;
+      height: auto;
+  }
+  .content{
+      max-width: 100vw;
+      margin-top: 0em;
+  }
+.contact{
+  padding: 50px;
+}
+.container{
+  flex-direction: column;
+}
+.container .content .box .contactInfo .icon{
+  text-align: left;
+  flex-direction: column;
+}
+.contactInfo .container .content .contactForm{
+  margin-bottom: 40px;
+  width: 90%;
+  flex-direction: column;
+
+}   
+.box{
+  flex-direction: column;
+
+}
+}
